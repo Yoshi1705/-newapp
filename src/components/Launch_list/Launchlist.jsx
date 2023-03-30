@@ -2,6 +2,11 @@ import React from "react";
 import { Launch } from "../Launch/Launch";
 import './styles.css';
 import axios from 'axios';
+import { 
+   BrowserRouter as Router,
+   Link
+ } from 'react-router-dom';
+ 
 export class Launchlist extends React.Component
 {
    state = {
@@ -42,15 +47,18 @@ export class Launchlist extends React.Component
           ];
           const randomIndex = Math.floor(Math.random() * imageUrls.length);
           const imageUrl = imageUrls[randomIndex];
-         const image = launch.links.flickr_images.length === 0 ?  imageUrl   : launch.links.flickr_images[0];
-        return (
+          const image = launch.links.flickr_images.length === 0 ?  imageUrl   : launch.links.flickr_images[0];
+          const des = launch.details === null ? "First launch under USAF's OSP 3 launch contract. First SpaceX launch to put ...." :launch.details;
+            return (
+         <Link to={"/view/"+ launch.flight_number}   key = {"launch"+index}>
           <Launch 
-            key = {"launch"+index}
+          
             title={launch.mission_name} 
             img={image}
             date={launch.launch_date_local}
-            description="Successful first stage burn and transition to second stage, maximum altitude 289 km, Premature engine shutdown at T+7 min 30 s, Failed to reach orbit, Failed to recover first stage"
-          />
+            description={des}
+           />
+         </Link>
         );
       });
       return launchComponent;
@@ -58,8 +66,8 @@ export class Launchlist extends React.Component
     
 
      render()
-     {
-      console.log(this.state.launches[0]);
+     { 
+          
          return(
            <div className="Launchlist">  
  
