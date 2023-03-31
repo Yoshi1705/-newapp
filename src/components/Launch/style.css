@@ -17,6 +17,12 @@
     border-radius: 5px;
 }
 
+.launch:hover {
+    background-color: rgb(41, 46, 47);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+
 .content
 {
     margin:0px;
