@@ -21,7 +21,11 @@
 @media (max-width: 499px) {
     .header {
          width:800px;
-         height:300px;
+         height:100px;
+    }
+    .header h1
+    {
+        margin-top: 50px;
     }
   }
   

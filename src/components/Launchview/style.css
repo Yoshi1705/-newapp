@@ -30,6 +30,9 @@ body
         margin-left: 200px;
         margin-top: 200px;
      }
+     .description p{
+        font-size: 20px;
+     }
   }
   
 
